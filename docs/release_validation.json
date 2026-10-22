@@ -1,0 +1,18 @@
+{
+  "date": "2026-10-22",
+  "unit_tests_passed": 131,
+  "float64_theory_cases_passed": 278,
+  "cpu_smoke_variants_passed": [
+    "csr_k10",
+    "normalized_centroid",
+    "shuffled_pairs",
+    "csr_k1",
+    "csr_k100"
+  ],
+  "dataset_preflight_passed": [
+    "tinyimagenet",
+    "imagenette"
+  ],
+  "full_training_repeated_for_release": false,
+  "notes": "Release validation uses the recorded Python environment. Smoke results are pipeline checks, not scientific evidence."
+}

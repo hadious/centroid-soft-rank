@@ -1,0 +1,22 @@
+# Datasets, training outputs and environment-specific files
+/data/
+/results/
+/generated_configs/
+/configs/smoke/
+/configs/pilot/
+/configs/final/
+/configs/cifar100_mechanism/
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.pt
+*.pth
+*.ckpt
+*.log
+*.zip
+*.tgz
+.env
+.env.*
+.DS_Store

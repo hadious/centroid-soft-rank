@@ -1,0 +1,55 @@
+{
+  "created_date": "2026-10-21",
+  "purpose": "Matched ImageNet-subset extension; pilot validation then full fixed-budget evaluation",
+  "datasets": {
+    "tinyimagenet": {
+      "resolution": 64,
+      "train": 95000,
+      "tuning": 5000,
+      "heldout_official_val": 10000
+    },
+    "imagenette": {
+      "resolution": 128,
+      "train": 8469,
+      "tuning": 1000,
+      "heldout_official_val": 3925
+    }
+  },
+  "methods": [
+    "centroid_soft_kappa10",
+    "mmcr_normalized_two_view",
+    "vicreg_25_25_1"
+  ],
+  "pilot": {
+    "epochs": 10,
+    "seeds": [
+      0
+    ],
+    "evaluate_heldout": false
+  },
+  "final": {
+    "epochs": 100,
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "evaluate_heldout": true,
+    "initialization": "from scratch, not resumed pilot weights"
+  },
+  "optimizer": {
+    "type": "AdamW",
+    "lr": 0.001,
+    "weight_decay": 0,
+    "gradient_clipping": null,
+    "batch": 256,
+    "warmup_epochs": 1,
+    "schedule": "cosine"
+  },
+  "limitations": [
+    "Shared optimizer settings are not individually tuned published baselines.",
+    "Clipping policy differs from the earlier CIFAR study.",
+    "Ten-epoch pilot results are not final benchmark evidence."
+  ],
+  "reporting": "Retain all executed method/dataset/seed results, including negative outcomes; do not pool smoke/pilot/final budgets."
+}
